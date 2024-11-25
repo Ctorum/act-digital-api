@@ -13,13 +13,13 @@ export class ListSurveyUseCase {
     const query = {
       text: `
         SELECT * FROM survey_responses
-        WHERE target_audience = $1 
+        WHERE target_audience = $1
         ORDER BY stars ${order}
       `,
       values: [targetAudience],
     };
 
     const result = await pool.query(query);
-    return result.rows;
+    return result?.rows || [];
   }
 }

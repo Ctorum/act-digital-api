@@ -8,8 +8,15 @@ import { Survey } from "@/infrastructure/database/models/surveys";
 
 export class AnswerSurveyUseCase {
   async execute(data: AnswerSurveyDTO): Promise<void> {
-    if (!data?.surveyId || !data?.responses) {
-      throw new Error("Invalid input. Survey ID and responses are required.");
+    if (
+      !data?.surveyId ||
+      data.surveyId < 0 ||
+      !data?.responses ||
+      data.responses.length === 0
+    ) {
+      throw new Error(
+        "Invalid input. A valid Survey ID and responses are required."
+      );
     }
     await answerSurveySchema.validate(data);
 

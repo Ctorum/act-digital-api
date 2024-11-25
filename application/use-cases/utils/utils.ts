@@ -1,3 +1,5 @@
+import { Response } from "express";
+
 export const mandatoryQuestions = [
   "Público-alvo",
   "Quantidade de estrelas",
