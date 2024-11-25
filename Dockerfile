@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:16.13.0-alpine
 
 WORKDIR /app
 
@@ -9,5 +9,4 @@ COPY . .
 
 EXPOSE 3000
 
-# CMD npm start
-CMD [ "node", "server.ts" ]
+CMD [ "npm", "run", "start" ]

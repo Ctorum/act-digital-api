@@ -1,11 +1,11 @@
-import { Client } from "pg";
+import { Pool } from "pg";
 
-const client = new Client({
+const pool = new Pool({
   user: "user",
-  host: "localhost",
+  host: "host.docker.internal",
   database: "db",
   password: "pass",
   port: 35432,
 });
 
-export default client;
+export default pool;
